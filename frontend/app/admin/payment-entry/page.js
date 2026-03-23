@@ -12,18 +12,22 @@ export default function PaymentEntryPage() {
     amount: '',
     payment_mode: '',
   });
-  const [alreadyPaid, setAlreadyPaid] = useState(false);
+  const [alreadyPaidcheck, setAlreadyPaidCheck] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // console.log('i am here  ')
     fetchFlats();
   }, []);
 
   const fetchFlats = async () => {
     try {
       const response = await api.get('/flats');
-      setFlats(response.data.flats || []);
+      setFlats(response.data.flats );
+      // console.log(response.data) 
+
+
     } catch (error) {
       console.error('Failed to fetch flats:', error);
     }
@@ -31,19 +35,30 @@ export default function PaymentEntryPage() {
 
   const checkExistingPayment = async (flat_id, month) => {
     if (!flat_id || !month) return;
+
     try {
+
+
       const response = await api.get(`/payments?month=${month}`);
-      const payments = response.data.payments || [];
+      const payments = response.data.payments ;
+
+
       const exists = payments.some((p) => p.flat_id === flat_id && p.status === 'paid');
-      setAlreadyPaid(exists);
-    } catch {
-      setAlreadyPaid(false);
+      
+      setAlreadyPaidCheck(exists);
+    } 
+    catch(e) {
+      // console.log(e)  
+      setAlreadyPaidCheck(false);
     }
   };
 
   const handleFlatOrMonthChange = (updated) => {
     setFormData(updated);
-    setAlreadyPaid(false);
+    setAlreadyPaidCheck(false);
+    // console.log('done ' ) 
+
+    
     checkExistingPayment(updated.flat_id, updated.month);
   };
 
@@ -83,7 +98,7 @@ export default function PaymentEntryPage() {
           </div>
         )}
 
-        {alreadyPaid && (
+        {alreadyPaidcheck && (
           <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800">
             Payment for this flat and month has already been recorded.
           </div>
@@ -135,7 +150,7 @@ export default function PaymentEntryPage() {
 
           <button
             type="submit"
-            disabled={alreadyPaid}
+            disabled={alreadyPaidcheck}
             className="w-full px-4 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Record Payment

@@ -75,8 +75,7 @@ export default function MonthlyRecordsPage() {
         </div>
       </div>
 
-      {/* Summary */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {[
           { label: 'Total Residents', value: summary.total, color: 'bg-blue-50 text-blue-700' },
           { label: 'Paid', value: summary.paid, color: 'bg-green-50 text-green-700' },
@@ -90,8 +89,7 @@ export default function MonthlyRecordsPage() {
         ))}
       </div>
 
-      {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 border-b border-gray-100">
             <tr>

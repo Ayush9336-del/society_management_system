@@ -77,8 +77,7 @@ export default function NotificationsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {/* Send form */}
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+         <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
           <h2 className="text-base font-semibold text-gray-900 mb-4">Send Notification</h2>
 
           {success && <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">{success}</div>}
@@ -110,8 +109,7 @@ export default function NotificationsPage() {
           </form>
         </div>
 
-        {/* Notifications list */}
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+         <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
           <h2 className="text-base font-semibold text-gray-900 mb-4">Recent Notifications</h2>
           <div className="space-y-3 max-h-[480px] overflow-y-auto">
             {notifications.length === 0 ? (

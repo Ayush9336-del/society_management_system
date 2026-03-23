@@ -16,8 +16,7 @@ export default function SubscriptionDetailPage() {
   useEffect(() => {
     const fetchPayment = async () => {
       try {
-        // Find the payment for this month from subscriptions list
-        const res = await api.get('/user/subscriptions');
+         const res = await api.get('/user/subscriptions');
         const found = (res.data.subscriptions || []).find(p => p.month === month);
         setPayment(found || null);
       } catch (err) {

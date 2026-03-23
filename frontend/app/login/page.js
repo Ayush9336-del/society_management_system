@@ -8,8 +8,12 @@ export default function UserLogin() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const error = searchParams.get('error');
+  // console.log(searchParams)
+  // console.log(error)
+
 
   const handleGoogleLogin = () => {
+    // console.log('i am here')
     window.location.href = `${API_URL}/auth/google`;
   };
 

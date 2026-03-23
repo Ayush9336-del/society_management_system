@@ -6,7 +6,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK_URL || 'http://localhost:5000/api/auth/google/callback',
+    callbackURL: process.env.GOOGLE_CALLBACK_URL  ,
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -36,14 +36,6 @@ passport.use(new GoogleStrategy(
   }
 ));
 
-passport.serializeUser((user, done) => done(null, user.id));
-passport.deserializeUser(async (id, done) => {
-  try {
-    const result = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
-    done(null, result.rows[0] || null);
-  } catch (err) {
-    done(err);
-  }
-});
+ 
 
 export default passport;

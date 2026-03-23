@@ -47,8 +47,7 @@ export default function AdminDashboard() {
     <div>
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
 
-      {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         <StatCard title="Total Flats"       value={stats?.total_flats || '0'}            icon={Building2}    color="blue" />
         <StatCard title="Residents"         value={stats?.total_residents || '0'}         icon={Users}        color="accent" />
         <StatCard title="Total Collected"   value={fmt(stats?.total_collected)}           icon={IndianRupee}  color="green" />
@@ -56,11 +55,9 @@ export default function AdminDashboard() {
         <StatCard title="Pending (Month)"   value={fmt(stats?.pending_amount)}            icon={AlertCircle}  color="red" />
       </div>
 
-      {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 
-        {/* Monthly Collection Bar Chart */}
-        <div className="lg:col-span-2">
+         <div className="lg:col-span-2">
           <ChartCard title="Monthly Collection (Last 6 Months)">
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={monthlyTrend} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
@@ -73,8 +70,7 @@ export default function AdminDashboard() {
           </ChartCard>
         </div>
 
-        {/* Current Month Paid vs Unpaid Pie */}
-        <ChartCard title="This Month — Paid vs Unpaid">
+         <ChartCard title="This Month — Paid vs Unpaid">
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie data={paidUnpaidData} dataKey="value" nameKey="name"
@@ -90,8 +86,7 @@ export default function AdminDashboard() {
         </ChartCard>
       </div>
 
-      {/* Payment Mode Pie + Recent Payments */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 
         <ChartCard title="Payment Modes">
           <ResponsiveContainer width="100%" height={220}>
@@ -108,8 +103,7 @@ export default function AdminDashboard() {
           </ResponsiveContainer>
         </ChartCard>
 
-        {/* Recent Payments Table */}
-        <div className="lg:col-span-2">
+         <div className="lg:col-span-2">
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
             <div className="px-4 py-3 border-b border-gray-100">
               <h3 className="text-base font-semibold text-gray-900">Recent Payments</h3>

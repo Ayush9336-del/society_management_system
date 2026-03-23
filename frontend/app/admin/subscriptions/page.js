@@ -11,12 +11,14 @@ export default function SubscriptionsPage() {
 
   useEffect(() => {
     fetchSubscriptions();
+    // console.log('call made successfully ')
   }, []);
 
   const fetchSubscriptions = async () => {
     try {
       const response = await api.get('/subscriptions');
-      setSubscriptions(response.data.subscriptions || []);
+      setSubscriptions(response.data.subscriptions );
+      // console.log(response.data)  
     } catch (error) {
       console.error('Failed to fetch subscriptions:', error);
     }
@@ -32,6 +34,7 @@ export default function SubscriptionsPage() {
       await api.put(`/subscriptions/${id}`, { monthly_amount: editAmount });
       fetchSubscriptions();
       setEditingId(null);
+      // console.log(editAmounobjectt)
     } catch (error) {
       alert('Failed to update subscription');
     }

@@ -81,8 +81,7 @@ export default function FlatsPage() {
     }
   };
 
-  // Add/Edit flat
-  const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editingFlat) {
@@ -121,8 +120,7 @@ export default function FlatsPage() {
     }
   };
 
-  // Create or update resident
-  const handleUserSubmit = async (e) => {
+   const handleUserSubmit = async (e) => {
     e.preventDefault();
     setUserError('');
     try {
@@ -155,16 +153,14 @@ export default function FlatsPage() {
 
   const closeModal = () => { setIsModalOpen(false); setEditingFlat(null); };
 
-  // Open user modal in CREATE mode
-  const openCreateUser = () => {
+   const openCreateUser = () => {
     setEditingUserId(null);
     setUserForm(emptyUserForm);
     setUserError('');
     setIsUserModalOpen(true);
   };
 
-  // Open user modal in EDIT mode — pre-fill with resident's current data
-  const openEditUser = (flat) => {
+   const openEditUser = (flat) => {
     setEditingUserId(flat.resident_id);
     setUserForm({
       name: flat.resident_name || '',
@@ -321,8 +317,7 @@ export default function FlatsPage() {
         )}
       </div>
 
-      {/* Add/Edit Flat Modal */}
-      <Modal isOpen={isModalOpen} onClose={closeModal} title={editingFlat ? 'Edit Flat' : 'Add Flat'}>
+       <Modal isOpen={isModalOpen} onClose={closeModal} title={editingFlat ? 'Edit Flat' : 'Add Flat'}>
         <form onSubmit={handleSubmit}>
           <FormInput label="Flat Number" value={formData.flat_number}
             onChange={v => setFormData({ ...formData, flat_number: v })} required />
@@ -336,8 +331,7 @@ export default function FlatsPage() {
         </form>
       </Modal>
 
-      {/* Assign Resident Modal */}
-      <Modal isOpen={isAssignModalOpen} onClose={() => setIsAssignModalOpen(false)}
+       <Modal isOpen={isAssignModalOpen} onClose={() => setIsAssignModalOpen(false)}
         title={`Assign Resident — ${assigningFlat?.flat_number}`}>
         <form onSubmit={handleAssign}>
           {unassignedUsers.length === 0 ? (
@@ -357,8 +351,7 @@ export default function FlatsPage() {
         </form>
       </Modal>
 
-      {/* Create / Edit Resident Modal */}
-      <Modal isOpen={isUserModalOpen} onClose={() => { setIsUserModalOpen(false); setEditingUserId(null); }}
+       <Modal isOpen={isUserModalOpen} onClose={() => { setIsUserModalOpen(false); setEditingUserId(null); }}
         title={editingUserId ? 'Edit Resident' : 'Add New Resident'}>
         <form onSubmit={handleUserSubmit}>
           {userError && (

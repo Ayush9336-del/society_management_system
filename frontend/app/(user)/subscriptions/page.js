@@ -29,8 +29,7 @@ export default function SubscriptionsPage() {
 
     const doc = new jsPDF();
 
-    // Header
-    doc.setFillColor(99, 102, 241);
+     doc.setFillColor(99, 102, 241);
     doc.rect(0, 0, 210, 30, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(18);
@@ -40,15 +39,13 @@ export default function SubscriptionsPage() {
     doc.setFont('helvetica', 'normal');
     doc.text('Payment Invoice', 14, 22);
 
-    // Invoice meta
-    doc.setTextColor(50, 50, 50);
+     doc.setTextColor(50, 50, 50);
     doc.setFontSize(10);
     doc.text(`Invoice #: ${payment.transaction_id || payment.id}`, 14, 42);
     doc.text(`Date: ${new Date(payment.payment_date).toLocaleDateString()}`, 14, 50);
     doc.text(`Billing Month: ${payment.month}`, 14, 58);
 
-    // Resident info
-    doc.setFontSize(11);
+     doc.setFontSize(11);
     doc.setFont('helvetica', 'bold');
     doc.text('Billed To:', 14, 72);
     doc.setFont('helvetica', 'normal');
@@ -56,8 +53,7 @@ export default function SubscriptionsPage() {
     doc.text(user?.name || 'Resident', 14, 80);
     doc.text(user?.email || '', 14, 87);
 
-    // Payment details table
-    autoTable(doc, {
+     autoTable(doc, {
       startY: 100,
       head: [['Description', 'Month', 'Mode', 'Amount']],
       body: [[
@@ -72,8 +68,7 @@ export default function SubscriptionsPage() {
       footStyles: { fontStyle: 'bold', fillColor: [240, 240, 255] },
     });
 
-    // Status stamp
-    const finalY = doc.lastAutoTable.finalY + 15;
+     const finalY = doc.lastAutoTable.finalY + 15;
     doc.setFillColor(220, 252, 231);
     doc.roundedRect(14, finalY, 60, 14, 3, 3, 'F');
     doc.setTextColor(22, 163, 74);

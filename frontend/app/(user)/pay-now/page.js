@@ -65,7 +65,7 @@ export default function PayNowPage() {
           </div>
         )}
 
-        {/* Payment mode selector */}
+        
         <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
           <label className="block text-sm font-medium text-gray-700 mb-2">Payment Mode</label>
           <select
@@ -77,7 +77,7 @@ export default function PayNowPage() {
           </select>
         </div>
 
-        {/* Current month bill */}
+       
         <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Current Month — {currentMonth}</h2>
 
@@ -113,7 +113,7 @@ export default function PayNowPage() {
           )}
         </div>
 
-        {/* Pending past months */}
+       
         {pendingPayments.filter(p => p.month !== currentMonth).length > 0 && (
           <div className="bg-white rounded-xl shadow-sm p-6 border border-orange-200">
             <h2 className="text-lg font-semibold text-orange-900 mb-4 flex items-center gap-2">
