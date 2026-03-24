@@ -88,20 +88,7 @@ export default function AdminDashboard() {
 
        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 
-        <ChartCard title="Payment Modes">
-          <ResponsiveContainer width="100%" height={220}>
-            <PieChart>
-              <Pie data={paymentModes} dataKey="count" nameKey="payment_mode"
-                cx="50%" cy="50%" outerRadius={75} label={({ payment_mode, count }) => `${payment_mode}: ${count}`}>
-                {paymentModes.map((_, i) => (
-                  <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
-                ))}
-              </Pie>
-              <Legend />
-              <Tooltip formatter={(v, n, p) => [v, p.payload.payment_mode]} />
-            </PieChart>
-          </ResponsiveContainer>
-        </ChartCard>
+       
 
          <div className="lg:col-span-2">
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">

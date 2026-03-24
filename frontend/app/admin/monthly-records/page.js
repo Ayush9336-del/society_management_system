@@ -9,7 +9,7 @@ import { downloadReceipt } from '@/lib/receipt';
 export default function MonthlyRecordsPage() {
   const [records, setRecords] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(new Date().toISOString().slice(0, 7));
-  const [filter, setFilter] = useState('all'); // all | paid | unpaid
+  const [filter, setFilter] = useState('all'); 
   const [search, setSearch] = useState('');
   const [summary, setSummary] = useState({ total: 0, paid: 0, unpaid: 0, collected: 0 });
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +20,7 @@ export default function MonthlyRecordsPage() {
   const fetchRecords = async () => {
     try {
       const res = await api.get(`/admin/monthly-records?month=${selectedMonth}`);
-      const data = res.data.records || [];
+      const data = res.data.records ;
       setRecords(data);
 
       const assigned = data.filter(r => r.resident_name);

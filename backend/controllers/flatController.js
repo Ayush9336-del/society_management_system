@@ -11,6 +11,7 @@ export const getAllFlats = async (req, res) => {
       left JOIN users u ON u.flat_id = f.id AND u.is_deleted = false
       ORDER BY f.flat_number
     `);
+    
     res.json({ success: true, flats: result.rows });
   } catch (error) {
     console.error('Get flats error:', error);

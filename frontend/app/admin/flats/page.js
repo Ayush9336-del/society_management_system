@@ -66,7 +66,7 @@ export default function FlatsPage() {
   const fetchFlats = async () => {
     try {
       const res = await api.get('/flats');
-      setFlats(res.data.flats || []);
+      setFlats(res.data.flats );
     } catch (err) {
       console.error('Failed to fetch flats:', err);
     }
@@ -75,7 +75,7 @@ export default function FlatsPage() {
   const fetchUnassignedUsers = async () => {
     try {
       const res = await api.get('/admin/residents');
-      setUnassignedUsers((res.data.residents || []).filter(u => !u.flat_id));
+      setUnassignedUsers((res.data.residents ).filter(u => !u.flat_id));
     } catch (err) {
       console.error('Failed to fetch users:', err);
     }

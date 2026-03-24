@@ -20,7 +20,7 @@ export default function NotificationsPage() {
   const fetchNotifications = async () => {
     try {
       const res = await api.get('/admin/notifications');
-      setNotifications(res.data.notifications || []);
+      setNotifications(res.data.notifications );
     } catch (err) {
       console.error('Failed to fetch notifications:', err);
     }
@@ -43,6 +43,7 @@ export default function NotificationsPage() {
         message,
         user_id: userId || null,
       });
+      alert("Notification sent") ;
       setSuccess('Notification sent!');
       setMessage('');
       setUserId('');

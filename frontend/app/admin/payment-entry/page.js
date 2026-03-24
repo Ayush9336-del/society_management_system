@@ -112,7 +112,7 @@ export default function PaymentEntryPage() {
             onChange={(val) => handleFlatOrMonthChange({ ...formData, flat_id: val })}
             options={flats.map((flat) => ({
               value: flat.id,
-              label: `${flat.flat_number} - ${flat.name}`,
+              label: `${flat.flat_number} - ${flat.resident_name}`,
             }))}
             required
           />
