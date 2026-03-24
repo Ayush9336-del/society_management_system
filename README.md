@@ -1,17 +1,22 @@
 # Society Subscription Management System
 
-A full-stack web app to manage society flat subscriptions, payments, and residents — with separate Admin and Resident portals.
+A full-stack web app to manage society flat subs   criptions, payments, and residents — with separate Admin and Resident portals.
 
 ---
 
 ## Tech Stack
 
-| Layer    | Tech                                  |
-|----------|---------------------------------------|
-| Backend  | Node.js, Express.js (ES Modules)      |
-| Database | PostgreSQL                            |
-| Auth     | Google OAuth + JWT                    |
-| Frontend | Next.js 14 (App Router), Tailwind CSS |
+| Tech | Used For |
+|------|----------|
+| Next.js 14 | Frontend framework — admin and resident portals |
+| Tailwind CSS | Styling |
+| Recharts | Charts on admin dashboard (bar, pie) |
+| jsPDF + jspdf-autotable | Generating PDF receipts and reports in the browser |
+| Node.js + Express.js | Backend API server |
+| PostgreSQL | Database — stores flats, users, payments, notifications |
+| Google OAuth (Passport.js) | User login via Google account |
+| JWT | Session management after login |
+| Axios | HTTP requests from frontend to backend |
 
 ---
 
@@ -68,19 +73,9 @@ project/
     └── lib/               # api.js, auth.js, receipt.js
 ```
 
----
-
-## Setup
-
-### 1. Database
-
-```bash
-createdb sms
-psql -U postgres -d sms -f backend/database/schema.sql
-psql -U postgres -d sms -f backend/database/seed_flats.sql
-```
-
-### 2. Backend
+ 
+ 
+### Backend
 
 ```bash
 cd backend && npm install
@@ -99,30 +94,16 @@ NODE_ENV=development
 npm run dev
 ```
 
-### 3. Frontend
+### Frontend
 
 ```bash
 cd frontend && npm install
 ```
-
-`frontend/.env.local`:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-NEXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
-```
-
+ 
 ```bash
 npm run dev
 ```
-
-### 4. Make yourself admin
-
-Log in once with Google, then:
-```bash
-psql -U postgres -d sms -c "UPDATE users SET role = 'admin' WHERE email = 'you@gmail.com';"
-```
-
----
+ 
 
 ## Auth Flow
 
