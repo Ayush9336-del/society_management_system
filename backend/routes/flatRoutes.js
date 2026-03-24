@@ -5,10 +5,10 @@ import { getAllFlats, createFlat, updateFlat, vacateFlat, assignResident } from 
 
 const router = Router();
 
-router.get('/',              verifyJWT, getAllFlats);
-router.post('/',             verifyJWT, verifyAdmin, createFlat);
-router.put('/:id',           verifyJWT, verifyAdmin, updateFlat);
-router.patch('/:id/vacate',  verifyJWT, verifyAdmin, vacateFlat);
-router.patch('/:id/assign',  verifyJWT, verifyAdmin, assignResident);
+router.get('/',verifyJWT, getAllFlats);
+router.post('/',verifyJWT, verifyAdmin, createFlat);
+router.put('/:id',verifyJWT, verifyAdmin, updateFlat);
+router.patch('/:id/vacate',verifyJWT, verifyAdmin, vacateFlat);
+router.patch('/:id/assign',verifyJWT, verifyAdmin, assignResident);
 
 export default router;

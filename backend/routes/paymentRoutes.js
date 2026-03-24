@@ -3,8 +3,8 @@ import { getPaymentsByMonth, createManualPayment, verifyOnlinePayment } from '..
 
 const router = Router();
 
-router.get('/',          getPaymentsByMonth);
-router.post('/manual',   createManualPayment);
-router.post('/verify',   verifyOnlinePayment);
+router.get('/', getPaymentsByMonth);
+router.post('/manual',createManualPayment);
+router.post('/verify',verifyOnlinePayment);
 
 export default router;
